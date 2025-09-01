@@ -47,12 +47,18 @@
 		margin: auto;
 	}
 
+	h2 {
+		padding: 4rem 0;
+	}
+
 	.section-content {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 
 		@media only screen and (min-width: 720px) {
 			flex-direction: row;
+			justify-content: center;
 			gap: 4rem;
 		}
 	}
@@ -60,13 +66,14 @@
 	.proof-grid {
 		display: flex;
 		flex-direction: column;
+		max-width: 400px;
 
 		@media only screen and (min-width: 720px) {
 			flex: 1;
-		}
 
-		&.second {
-			padding-top: 10rem;
+			&.second {
+				padding-top: 10rem;
+			}
 		}
 	}
 </style>
