@@ -17,7 +17,7 @@
 </script>
 
 <article>
-	<RevealContainer x={400}>
+	<RevealContainer axis="x">
 		<img {src} alt={name} />
 	</RevealContainer>
 	<Collapsible>

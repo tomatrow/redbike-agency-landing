@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { RevealContainer } from "$lib"
+</script>
+
 <section>
 	<h2>About Us</h2>
 
@@ -14,7 +18,9 @@
 		</div>
 
 		<div class="team-image">
-			<img src="/images/team.webp" alt="aj and nic in a field dressed like hobbits" />
+			<RevealContainer axis="y">
+				<img src="/images/team.webp" alt="aj and nic in a field dressed like hobbits" />
+			</RevealContainer>
 			<p>We are a pair of lifelong friends for over 20 Years!</p>
 		</div>
 	</div>
@@ -31,7 +37,7 @@
 			flex-direction: column;
 			gap: 1rem;
 
-			@media only screen and (min-width: 720px) {
+			@media (min-width: 720px) {
 				flex-direction: row;
 
 				.description,
@@ -64,6 +70,21 @@
 		display: flex;
 		justify-content: center;
 
+		:global(.reveal-container) {
+			img {
+				object-fit: cover;
+				object-position: 50% 50%;
+				aspect-ratio: 1;
+				min-height: 0;
+				width: 100%;
+
+				@media (min-width: 720px) {
+					aspect-ratio: 0.5;
+					max-width: 400px;
+				}
+			}
+		}
+
 		p {
 			position: absolute;
 			background: var(--accent-bg);
@@ -75,17 +96,6 @@
 			margin-bottom: -2rem;
 			max-width: 16rem;
 			line-height: 1.2;
-		}
-
-		img {
-			object-fit: cover;
-			object-position: 50% 50%;
-			aspect-ratio: 1;
-
-			@media only screen and (min-width: 720px) {
-				aspect-ratio: 0.5;
-				max-width: 400px;
-			}
 		}
 	}
 </style>

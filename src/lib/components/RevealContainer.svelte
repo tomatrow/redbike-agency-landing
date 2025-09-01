@@ -5,12 +5,10 @@
 	import { useIntersectionObserver } from "runed"
 
 	let {
-		x,
-		y,
+		axis = "x",
 		children
 	}: {
-		x?: number
-		y?: number
+		axis: "x" | "y"
 		children?: Snippet
 	} = $props()
 
@@ -27,6 +25,8 @@
 		},
 		{ threshold: 1 / 3 }
 	)
+	let clientWidth = $state(0)
+	let clientHeight = $state(0)
 </script>
 
 <div class="reveal-container">
@@ -35,12 +35,14 @@
 		<div
 			class="cover"
 			bind:this={target}
+			bind:clientWidth
+			bind:clientHeight
 			out:fly|global={{
 				opacity: 1,
 				easing: cubicInOut,
 				duration: 500,
-				x,
-				y
+				x: axis === "x" ? clientWidth : undefined,
+				y: axis === "y" ? -clientHeight : undefined
 			}}
 		></div>
 	{/if}
