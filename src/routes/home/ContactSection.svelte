@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { dev } from "$app/environment"
+</script>
+
 <section id="contact">
 	<header>
 		<h2>Let’s Work Together</h2>
@@ -10,16 +14,17 @@
 		</p>
 		<a href="mailto:hello@redbike.agency">hello@redbike.agency</a>
 	</header>
-
 	<div class="calendy-container">
-		<!-- Calendly inline widget begin -->
-		<div class="calendly-inline-widget" data-url="https://calendly.com/redbikeagency"></div>
-		<script
-			type="text/javascript"
-			src="https://assets.calendly.com/assets/external/widget.js"
-			async
-		></script>
-		<!-- Calendly inline widget end -->
+		{#if !dev}
+			<!-- Calendly inline widget begin -->
+			<div class="calendly-inline-widget" data-url="https://calendly.com/redbikeagency"></div>
+			<script
+				type="text/javascript"
+				src="https://assets.calendly.com/assets/external/widget.js"
+				async
+			></script>
+			<!-- Calendly inline widget end -->
+		{/if}
 	</div>
 </section>
 

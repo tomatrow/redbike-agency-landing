@@ -3,6 +3,7 @@
 	import { slide, fade } from "svelte/transition"
 	import { cubicOut } from "svelte/easing"
 	import ToggleIcon from "./ToggleIcon.svelte"
+	import { RevealContainer } from "$lib"
 
 	let {
 		src,
@@ -16,7 +17,9 @@
 </script>
 
 <article>
-	<img {src} alt={name} />
+	<RevealContainer x={400}>
+		<img {src} alt={name} />
+	</RevealContainer>
 	<Collapsible>
 		{#snippet children(collapsible)}
 			<button {...collapsible.trigger}>
