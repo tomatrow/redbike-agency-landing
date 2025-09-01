@@ -12,7 +12,7 @@
 
 	/* Default (light) theme */
 	--bg: #fff;
-	--accent-bg: var(--red);
+	--accent-bg: hsla(60, 4.35%, 95.49%);
 	--text: black;
 	--text-light: #585858;
 	--border: #898ea4;
@@ -97,4 +97,33 @@ ul,
 ol {
 	list-style: none;
 	padding-left: 0;
+}
+
+/* Format headers */
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.6rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.44rem;
+}
+
+h5 {
+	font-size: 1.15rem;
+}
+
+h6 {
+	font-size: 0.96rem;
+}
+
+p {
+	line-height: 2.5;
 }

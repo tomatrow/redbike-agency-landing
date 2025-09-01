@@ -58,7 +58,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
-		background: var(--accent-bg);
+		background: var(--accent);
 		display: flex;
 		padding: 1rem;
 		align-items: center;
