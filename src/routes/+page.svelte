@@ -1,53 +1,31 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import { FlyText } from "./home"
+</script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<section>
+	<h2>
+		<FlyText
+			text="At Red Bike, we believe a brand isn't just a logo—it's a journey. We help you craft a strategic and compelling story that sets you on the right path to connecting with your tribe."
+		/>
+	</h2>
+</section>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<style>
+	section {
+		background: var(--accent-bg);
+		overflow: hidden;
+		padding: 8rem 0rem;
+	}
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+	h2 {
+		font-size: 2rem;
+		margin: 0;
+		text-align: center;
+		line-height: 1;
+		color: white;
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+		@media only screen and (min-width: 720px) {
+			font-size: 4rem;
+		}
+	}
+</style>

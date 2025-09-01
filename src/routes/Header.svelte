@@ -63,6 +63,7 @@
 		padding: 1rem;
 		align-items: center;
 		justify-content: space-between;
+		z-index: 1000;
 	}
 
 	img {
