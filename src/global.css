@@ -2,20 +2,22 @@
 :root {
 	/* Set sans-serif & mono fonts */
 	--sans-font:
-		-apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir, 'Nimbus Sans L', Roboto, 'Noto Sans',
-		'Segoe UI', Arial, Helvetica, 'Helvetica Neue', sans-serif;
-	--mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans",
+		"Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+	--mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	--standard-border-radius: 5px;
 	--border-width: 1px;
 
+	--red: hsla(2.68, 82.49%, 57.45%, 1);
+
 	/* Default (light) theme */
 	--bg: #fff;
-	--accent-bg: hsla(2.68, 82.49%, 57.45%, 1);
-	--text: #212121;
+	--accent-bg: var(--red);
+	--text: black;
 	--text-light: #585858;
 	--border: #898ea4;
-	--accent: #0d47a1;
-	--accent-hover: #1266e2;
+	--accent: var(--red);
+	--accent-hover: var(--text);
 	--accent-text: var(--bg);
 	--code: #d81b60;
 	--preformatted: #444;
@@ -39,9 +41,54 @@ body {
 
 a,
 a:visited {
-	color: var(--accent-text);
+	color: var(--accent);
 }
 
 a {
 	text-decoration: none;
+	&:hover {
+		color: var(--accent-hover);
+	}
+}
+
+button,
+.button,
+a.button, /* extra specificity to override a */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	border: var(--border-width) solid var(--accent);
+	background-color: var(--accent);
+	color: var(--accent-text);
+	padding: 0.5rem 0.9rem;
+	text-decoration: none;
+	line-height: normal;
+}
+
+.button[aria-disabled="true"],
+input:disabled,
+textarea:disabled,
+select:disabled,
+button[disabled] {
+	cursor: not-allowed;
+	background-color: var(--disabled);
+	border-color: var(--disabled);
+	color: var(--text-light);
+}
+
+button:enabled:hover,
+.button:not([aria-disabled="true"]):hover,
+input[type="submit"]:enabled:hover,
+input[type="reset"]:enabled:hover,
+input[type="button"]:enabled:hover {
+	background-color: var(--accent-hover);
+	border-color: var(--accent-hover);
+	cursor: pointer;
+}
+
+.button:focus-visible,
+button:focus-visible:where(:enabled),
+input:enabled:focus-visible:where([type="submit"], [type="reset"], [type="button"]) {
+	outline: 2px solid var(--accent);
+	outline-offset: 1px;
 }
