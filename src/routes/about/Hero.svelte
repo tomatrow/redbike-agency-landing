@@ -13,7 +13,7 @@
 
 <style>
 	section {
-		background: var(--accent-bg);
+		background: var(--accent);
 		overflow: hidden;
 		padding: 8rem 0rem;
 		display: flex;
