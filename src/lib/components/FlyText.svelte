@@ -20,7 +20,8 @@
 
 			showText = true
 			oberver.stop()
-		}
+		},
+		{ threshold: 0.6 }
 	)
 
 	let tokens = $derived(text.split(/(\s+)/))
