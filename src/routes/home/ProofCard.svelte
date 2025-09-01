@@ -5,16 +5,18 @@
 	import ToggleIcon from "./ToggleIcon.svelte"
 
 	let {
+		src,
 		name,
 		items
 	}: {
+		src: string
 		name: string
 		items: string[]
 	} = $props()
 </script>
 
 <article>
-	<img src="/images/readfriends.webp" alt={name} />
+	<img {src} alt={name} />
 	<Collapsible>
 		{#snippet children(collapsible)}
 			<button {...collapsible.trigger}>
@@ -42,11 +44,14 @@
 	article {
 		display: flex;
 		flex-direction: column;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	img {
-		aspect-ratio: 1;
+		aspect-ratio: 0.8;
 		min-height: 0;
+		object-fit: cover;
 	}
 
 	button {
