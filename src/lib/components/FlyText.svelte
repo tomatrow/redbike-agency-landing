@@ -15,6 +15,7 @@
 <span class="words" aria-live="polite">
 	{#each tokens as token, i (i)}
 		{#if token.trim() === ""}
+			<!--  eslint-disable-next-line svelte/no-at-html-tags -->
 			{@html token}
 		{:else}
 			<span class="word" in:fly|global={{ y, duration, delay: i * delayGap, easing: cubicOut }}
@@ -25,24 +26,7 @@
 </span>
 
 <style>
-	.words {
-		display: inline; /* keep normal inline flow */
-		white-space: pre-wrap; /* preserve multiple spaces and wrap */
-		line-height: 1.3;
-	}
-
 	.word {
 		display: inline-block; /* prevents layout shift when transforming */
-		will-change: transform, opacity;
-		transform-origin: center;
-		/* optional niceties */
-		backface-visibility: hidden;
-	}
-
-	/* small accessibility / reduced-motion support */
-	@media (prefers-reduced-motion: reduce) {
-		.word {
-			transition: none !important;
-		}
 	}
 </style>
