@@ -27,6 +27,7 @@
 		"melt": "^0.39.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
+		"runed": "^0.31.1",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"svelte-language-server": "^0.17.19",
