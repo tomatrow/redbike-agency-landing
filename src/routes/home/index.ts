@@ -1,1 +1,7 @@
-export { default as FlyText } from "./FlyText.svelte"
+export { default as HeroSection } from "./HeroSection.svelte"
+export { default as AboutSection } from "./AboutSection.svelte"
+export { default as ProofSection } from "./ProofSection.svelte"
+export { default as PostProofSection } from "./PostProofSection.svelte"
+export { default as ServicesSection } from "./ServicesSection.svelte"
+export { default as PostServicesSection } from "./PostServicesSection.svelte"
+export { default as ContactSection } from "./ContactSection.svelte"
