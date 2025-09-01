@@ -59,6 +59,8 @@
 		border-color: var(--text);
 		margin-top: 1rem;
 		color: var(--text);
+		padding: 0.5rem 0;
+		font-weight: 500;
 
 		background: none;
 		&:hover {
