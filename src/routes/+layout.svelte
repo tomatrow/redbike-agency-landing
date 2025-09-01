@@ -1,9 +1,10 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-	import Header from './Header.svelte';
-	import '../global.css';
+	import favicon from "$lib/assets/favicon.svg"
+	import Header from "./Header.svelte"
+	import Footer from "./Footer.svelte"
+	import "../global.css"
 
-	let { children } = $props();
+	let { children } = $props()
 </script>
 
 <svelte:head>
@@ -16,4 +17,4 @@
 	{@render children?.()}
 </main>
 
-<footer></footer>
+<Footer />

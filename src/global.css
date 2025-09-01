@@ -92,3 +92,9 @@ input:enabled:focus-visible:where([type="submit"], [type="reset"], [type="button
 	outline: 2px solid var(--accent);
 	outline-offset: 1px;
 }
+
+ul,
+ol {
+	list-style: none;
+	padding-left: 0;
+}
