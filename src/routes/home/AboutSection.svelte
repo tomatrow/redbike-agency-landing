@@ -2,13 +2,16 @@
 	<h2>About Us</h2>
 
 	<div class="content">
-		<p class="description">
-			At Red Bike, we are passionate about guiding brands through their digital journey. Our team
-			brings over two decades of combined experience to every project, crafting powerful online
-			presences. We work with intentionality to build the right foundation for your brand's growth,
-			whether you need a quick tune-up or a full custom build. Our goal is to help you build
-			momentum and connect with your ideal audience, so you can truly set your brand in motion.
-		</p>
+		<div class="description">
+			<p>
+				At Red Bike, we are passionate about guiding brands through their digital journey. Our team
+				brings over two decades of combined experience to every project, crafting powerful online
+				presences. We work with intentionality to build the right foundation for your brand's
+				growth, whether you need a quick tune-up or a full custom build. Our goal is to help you
+				build momentum and connect with your ideal audience, so you can truly set your brand in
+				motion.
+			</p>
+		</div>
 
 		<div class="team-image">
 			<img src="/images/team.webp" alt="aj and nic in a field dressed like hobbits" />
@@ -45,7 +48,14 @@
 
 	.description {
 		@media only screen and (min-width: 720px) {
-			max-width: 400px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				max-width: 400px;
+				line-height: 1.5;
+			}
 		}
 	}
 
