@@ -9,7 +9,7 @@
 		children,
 		class: clazz
 	}: {
-		axis: "x" | "y"
+		axis: "x" | "y" | "-x" | "-y"
 		class?: string
 		children?: Snippet
 	} = $props()
@@ -30,6 +30,19 @@
 	)
 	let clientWidth = $state(0)
 	let clientHeight = $state(0)
+
+	const flyProps = $derived.by(() => {
+		switch (axis) {
+			case "x":
+				return { x: -clientWidth }
+			case "-x":
+				return { x: clientWidth }
+			case "y":
+				return { y: -clientHeight }
+			case "-y":
+				return { y: clientHeight }
+		}
+	})
 </script>
 
 <div class={["reveal-container", clazz]} class:enabled={!didEndOutro}>
@@ -44,8 +57,7 @@
 				opacity: 1,
 				easing: cubicInOut,
 				duration: 500,
-				x: axis === "x" ? clientWidth + 10 : undefined,
-				y: axis === "y" ? -clientHeight - 10 : undefined
+				...flyProps
 			}}
 			onoutroendcapture={() => (didEndOutro = true)}
 		></div>
