@@ -21,7 +21,7 @@
 		align-items: center;
 		gap: 2rem;
 
-		@media only screen and (min-width: 720px) {
+		@media (min-width: 720px) {
 			gap: 6rem;
 		}
 	}
@@ -33,8 +33,17 @@
 		line-height: 1;
 		color: white;
 
-		@media only screen and (min-width: 720px) {
+		@media (min-width: 720px) {
 			font-size: 4rem;
+		}
+	}
+
+	a.button {
+		text-transform: uppercase;
+		padding: 1rem 2rem;
+
+		@media (min-width: 720px) {
+			padding: 2rem 4rem;
 		}
 	}
 </style>
