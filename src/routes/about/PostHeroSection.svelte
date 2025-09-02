@@ -9,6 +9,10 @@
 		padding: 6rem 1rem;
 		max-width: min(1200px, 80%);
 		margin: auto;
+
+		@media (min-width: 720px) {
+			padding: 12rem 1rem;
+		}
 	}
 
 	h2 {
@@ -29,6 +33,7 @@
 
 		@media (min-width: 720px) {
 			font-weight: bold;
+			font-size: 2.5rem;
 		}
 	}
 </style>

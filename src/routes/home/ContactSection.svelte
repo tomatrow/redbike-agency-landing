@@ -1,7 +1,3 @@
-<script lang="ts">
-	import { dev } from "$app/environment"
-</script>
-
 <section id="contact">
 	<header>
 		<h2>Let’s Work Together</h2>
@@ -15,16 +11,18 @@
 		<a href="mailto:hello@redbike.agency">hello@redbike.agency</a>
 	</header>
 	<div class="calendy-container">
-		{#if !dev}
-			<!-- Calendly inline widget begin -->
-			<div class="calendly-inline-widget" data-url="https://calendly.com/redbikeagency"></div>
-			<script
-				type="text/javascript"
-				src="https://assets.calendly.com/assets/external/widget.js"
-				async
-			></script>
-			<!-- Calendly inline widget end -->
-		{/if}
+		<!-- Calendly inline widget begin -->
+		<div class="calendly-inline-widget">
+			<iframe
+				src="https://calendly.com/redbikeagency"
+				width="100%"
+				height="100%"
+				frameborder="0"
+				title="calendly"
+			>
+			</iframe>
+		</div>
+		<!-- Calendly inline widget end -->
 	</div>
 </section>
 
@@ -40,6 +38,7 @@
 		@media (min-width: 720px) {
 			flex-direction: row;
 			gap: 2rem;
+			align-items: center;
 
 			header,
 			.calendy-container {
@@ -63,11 +62,7 @@
 	.calendy-container {
 		.calendly-inline-widget {
 			min-width: 320px;
-			height: 500px;
-
-			@media (min-width: 720px) {
-				height: 100%;
-			}
+			height: 700px;
 		}
 	}
 </style>

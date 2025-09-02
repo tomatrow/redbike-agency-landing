@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FlyText } from "$lib"
+	import { FlyText, RevealContainer } from "$lib"
 </script>
 
 <section>
@@ -8,14 +8,16 @@
 			text="At Red Bike, we believe a brand isn't just a logo—it's a journey. We help you craft a strategic and compelling story that sets you on the right path to connecting with your tribe."
 		/>
 	</h2>
-	<a class="button" href="#contact">Let's Work Together</a>
+	<RevealContainer axis="y" --bg="var(--accent)">
+		<a class="button" href="#contact">Let's Work Together</a>
+	</RevealContainer>
 </section>
 
 <style>
 	section {
 		background: var(--accent);
 		overflow: hidden;
-		padding: 8rem 0rem;
+		padding: 8rem 1rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -30,7 +32,7 @@
 		font-size: 2rem;
 		margin: 0;
 		text-align: center;
-		line-height: 1;
+		line-height: 1.25;
 		color: white;
 
 		@media (min-width: 720px) {
