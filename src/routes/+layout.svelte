@@ -1,15 +1,16 @@
 <script lang="ts">
-	import favicon from "$lib/assets/favicon.svg"
+	import { PageMetaTags } from "$lib"
 	import Header from "./Header.svelte"
 	import Footer from "./Footer.svelte"
 	import "../global.css"
+	import { page } from "$app/state"
 
 	let { children } = $props()
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
+<PageMetaTags
+	canonical={`https://redbike.agency${page.url.pathname === "/" ? "" : page.url.pathname}`}
+/>
 
 <Header />
 
