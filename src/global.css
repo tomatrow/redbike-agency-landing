@@ -1,8 +1,7 @@
 /* Global variables. */
 :root {
 	/* Set sans-serif & mono fonts */
-	--sans-font:
-		-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans",
+	--sans-font:'Raleway', -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans",
 		"Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
 	--mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	--standard-border-radius: 5px;
@@ -125,29 +124,80 @@ ol {
 
 /* Format headers */
 h1 {
+	font-family: 'Space Grotesk';
 	font-size: 3rem;
 }
 
 h2 {
+	font-family: 'Space Grotesk';
 	font-size: 2.6rem;
 }
 
 h3 {
+	font-family: 'Space Grotesk';
 	font-size: 2rem;
 }
 
 h4 {
+	font-family: 'Space Grotesk';
 	font-size: 1.44rem;
 }
 
 h5 {
+	font-family: 'Space Grotesk';
 	font-size: 1.15rem;
 }
 
 h6 {
+	font-family: 'Space Grotesk';
 	font-size: 0.96rem;
 }
 
 p {
 	line-height: 1.5;
 }
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4VrMPrQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4Y_LPrQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoooCP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7aUUsj.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksj.ttf) format('truetype');
+}
+
+
