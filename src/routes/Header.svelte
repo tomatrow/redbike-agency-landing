@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { Instagram, Menu, X } from "@lucide/svelte"
+	import { Instagram } from "@lucide/svelte"
 	import { MediaQuery } from "svelte/reactivity"
 	import { fly } from "svelte/transition"
 	import { cubicInOut, cubicOut } from "svelte/easing"
 	import { beforeNavigate } from "$app/navigation"
+	import MenuIcon from "./MenuIcon.svelte"
 
 	let showMenu = $state(false)
 	let isMobile = new MediaQuery("max-width: 720px")
@@ -38,19 +39,18 @@
 	<a class="mobile-logo" in:fly|global={floatUp} href="/"
 		><img src="/images/logo-mobile.webp" alt="red bike" /></a
 	>
-	<button
-		class="mobile-menu-button icon-only"
-		in:fly|global={floatUp}
-		onclick={() => (showMenu = true)}
-	>
-		<Menu />
-	</button>
+	<div class="mobile-menu-button icon-only" in:fly|global={floatUp}>
+		<MenuIcon open={showMenu} onclick={() => (showMenu = !showMenu)} --menu-color={
+			showMenu
+				? "black"
+				: "white"
+			}  />
+	</div>
 	{#if showMenu && isMobile}
 		<nav
 			class="mobile-nav"
 			transition:fly={{ y: 10, duration: 200, easing: cubicInOut, opacity: 0 }}
 		>
-			<button class="icon-only" onclick={() => (showMenu = false)}><X /></button>
 			<ul>
 				<li><a href="/">home</a></li>
 				<li><a href="/about">about us</a></li>
@@ -66,15 +66,6 @@
 	:global {
 		.no-scroll {
 			overflow: hidden;
-		}
-	}
-
-	button.icon-only {
-		--button: var(--bg);
-		border: none;
-
-		&::before {
-			content: unset;
 		}
 	}
 
@@ -105,6 +96,8 @@
 		top: 50%;
 		right: 1rem;
 		transform: translateY(-50%);
+		width: 2rem;
+		z-index: 1000;
 
 		@media (min-width: 720px) {
 			display: none;
@@ -125,18 +118,14 @@
 		gap: 1rem;
 		padding: 1rem;
 		background: var(--bg);
-		justify-content: space-between;
+		justify-content: center;
 
 		.social {
-			justify-self: flex-end;
+			position: absolute;
+			left: 1rem;
+			bottom: 1rem;
 		}
-
-		button {
-			color: var(--accent);
-			align-self: flex-end;
-			justify-self: flex-start;
-		}
-
+ 
 		ul {
 			display: flex;
 			flex-direction: column;

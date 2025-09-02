@@ -53,12 +53,13 @@ a {
 	}
 }
 
-button,
-.button,
-a.button, /* extra specificity to override a */
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+button {
+	padding: 0;
+	background: none;
+	border: none;
+}
+
+.button {
 	background: transparent;
 	padding: 0.5rem 2rem;
 	text-decoration: none;
@@ -96,27 +97,22 @@ input[type="button"] {
 }
 
 .button[aria-disabled="true"],
-input:disabled,
-textarea:disabled,
-select:disabled,
-button[disabled] {
+.button:disabled,
+.button[disabled] {
 	cursor: not-allowed;
 	background-color: var(--disabled);
 	border-color: var(--disabled);
 	color: var(--text-light);
 }
 
-button:enabled:hover,
-.button:not([aria-disabled="true"]):hover,
-input[type="submit"]:enabled:hover,
-input[type="reset"]:enabled:hover,
-input[type="button"]:enabled:hover {
+.button:enabled:hover,
+.button:not([aria-disabled="true"]):hover {
 	cursor: pointer;
 }
 
 .button:focus-visible,
-button:focus-visible:where(:enabled),
-input:enabled:focus-visible:where([type="submit"], [type="reset"], [type="button"]) {
+.button:focus-visible:where(:enabled),
+.button:enabled:focus-visible:where([type="submit"], [type="reset"], [type="button"]) {
 	/* outline: 2px solid var(--accent); */
 	/* outline-offset: 1px; */
 }

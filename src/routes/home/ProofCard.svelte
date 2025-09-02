@@ -22,7 +22,7 @@
 	</RevealContainer>
 	<Collapsible>
 		{#snippet children(collapsible)}
-			<button {...collapsible.trigger}>
+			<button class="button" {...collapsible.trigger}>
 				<span>{name}</span>
 
 				<ToggleIcon open={collapsible.open} />

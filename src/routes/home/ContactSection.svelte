@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { dev } from "$app/environment"
+</script>
+
 <section id="contact">
 	<header>
 		<h2>Let’s Work Together</h2>
@@ -13,14 +17,16 @@
 	<div class="calendy-container">
 		<!-- Calendly inline widget begin -->
 		<div class="calendly-inline-widget">
-			<iframe
-				src="https://calendly.com/redbikeagency"
-				width="100%"
-				height="100%"
-				frameborder="0"
-				title="calendly"
-			>
-			</iframe>
+			{#if !dev}
+				<iframe
+					src="https://calendly.com/redbikeagency"
+					width="100%"
+					height="100%"
+					frameborder="0"
+					title="calendly"
+				>
+				</iframe>
+			{/if}
 		</div>
 		<!-- Calendly inline widget end -->
 	</div>
