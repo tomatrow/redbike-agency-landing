@@ -22,23 +22,25 @@
 	</RevealContainer>
 	<Collapsible>
 		{#snippet children(collapsible)}
-			<button class="button" {...collapsible.trigger}>
-				<span>{name}</span>
+			<div class="collapse">
+				<button class="button" {...collapsible.trigger}>
+					<span>{name}</span>
 
-				<ToggleIcon open={collapsible.open} />
-			</button>
+					<ToggleIcon open={collapsible.open} />
+				</button>
 
-			{#if collapsible.open}
-				<div {...collapsible.content} transition:slide>
-					<ul>
-						{#each items as item, index (item)}
-							<li transition:fade|global={{ delay: index * 150 + 100, easing: cubicOut }}>
-								<p>{item}</p>
-							</li>
-						{/each}
-					</ul>
-				</div>
-			{/if}
+				{#if collapsible.open}
+					<div {...collapsible.content} transition:slide>
+						<ul>
+							{#each items as item, index (item)}
+								<li transition:fade|global={{ delay: index * 150 + 100, easing: cubicOut }}>
+									<p>{item}</p>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+			</div>
 		{/snippet}
 	</Collapsible>
 </article>
@@ -57,15 +59,18 @@
 		object-fit: cover;
 	}
 
+	.collapse {
+		border-bottom: 1px solid black;
+	}
+
 	button {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		border-left: none;
-		border-right: none;
 		margin-top: 1rem;
 		padding: 0.5rem 0;
 		font-weight: 500;
+		border-top: 1px solid black;
 
 		color: var(--text);
 		&::before {
