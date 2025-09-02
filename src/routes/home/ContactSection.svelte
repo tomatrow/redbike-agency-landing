@@ -12,7 +12,7 @@
 			Sometimes this looks like us donating our resources or time, and other times it could be a
 			reduced fee or donation. Either way, it’s about doing our bit for better.
 		</p>
-		<a href="mailto:hello@redbike.agency">hello@redbike.agency</a>
+		<a class="anchor-glow" href="mailto:hello@redbike.agency">hello@redbike.agency</a>
 	</header>
 	<div class="calendy-container">
 		<!-- Calendly inline widget begin -->
@@ -63,6 +63,10 @@
 				max-width: 24rem;
 			}
 		}
+	}
+
+	.anchor-glow {
+		--glow-color: black;
 	}
 
 	.calendy-container {

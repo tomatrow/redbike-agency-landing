@@ -1,8 +1,9 @@
 /* Global variables. */
 :root {
 	/* Set sans-serif & mono fonts */
-	--sans-font:'Raleway', -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, "Noto Sans",
-		"Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+	--sans-font:
+		"Raleway", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto,
+		"Noto Sans", "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
 	--mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	--standard-border-radius: 5px;
 	--border-width: 1px;
@@ -43,12 +44,44 @@ body {
 a,
 a:visited {
 	color: var(--accent);
+	position: relative;
+	display: inline-block;
+
+	&,
+	&:hover {
+		text-decoration: none;
+	}
 }
 
-a {
-	text-decoration: none;
+a.anchor-glow {
+	transition: color 400ms ease-out;
+
 	&:hover {
-		/* color: var(--accent-hover); */
+		color: var(--glow-color, var(--accent));
+	}
+}
+
+a.anchor-beam {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: var(--accent);
+		transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+		transform-origin: right;
+		transform: scaleX(0);
+	}
+
+	&:hover {
+		&::after {
+			transform-origin: left;
+			transform: scaleX(1);
+		}
 	}
 }
 
@@ -124,32 +157,32 @@ ol {
 
 /* Format headers */
 h1 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 3rem;
 }
 
 h2 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 2.6rem;
 }
 
 h3 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 2rem;
 }
 
 h4 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 1.44rem;
 }
 
 h5 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 1.15rem;
 }
 
 h6 {
-	font-family: 'Space Grotesk';
+	font-family: "Space Grotesk";
 	font-size: 0.96rem;
 }
 
@@ -158,46 +191,46 @@ p {
 }
 
 @font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 500;
-  src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4VrMPrQ.ttf) format('truetype');
+	font-family: "Raleway";
+	font-style: italic;
+	font-weight: 500;
+	src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4VrMPrQ.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 700;
-  src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4Y_LPrQ.ttf) format('truetype');
+	font-family: "Raleway";
+	font-style: italic;
+	font-weight: 700;
+	src: url(fonts/raleway/v36/1Pt_g8zYS_SKggPNyCgSQamb1W0lwk4S4Y_LPrQ.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCP.ttf) format('truetype');
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 400;
+	src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCP.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 500;
-  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoooCP.ttf) format('truetype');
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvoooCP.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCP.ttf) format('truetype');
+	font-family: "Raleway";
+	font-style: normal;
+	font-weight: 700;
+	src: url(fonts/raleway/v36/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCP.ttf) format("truetype");
 }
 @font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7aUUsj.ttf) format('truetype');
+	font-family: "Space Grotesk";
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7aUUsj.ttf)
+		format("truetype");
 }
 @font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksj.ttf) format('truetype');
+	font-family: "Space Grotesk";
+	font-style: normal;
+	font-weight: 700;
+	src: url(fonts/spacegrotesk/v21/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj4PVksj.ttf)
+		format("truetype");
 }
-
-

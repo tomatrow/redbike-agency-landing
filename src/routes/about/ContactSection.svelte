@@ -6,7 +6,7 @@
 	<header>
 		<h2>Let’s Work Together</h2>
 		<p>We collaborate with ambitious brands. Let’s go the distance together.</p>
-		<a href="mailto:hello@redbike.agency">hello@redbike.agency</a>
+		<a class="anchor-glow" href="mailto:hello@redbike.agency">hello@redbike.agency</a>
 	</header>
 	<div class="calendy-container">
 		<!-- Calendly inline widget begin -->
@@ -57,6 +57,10 @@
 				max-width: 24rem;
 			}
 		}
+	}
+
+	.anchor-glow {
+		--glow-color: black;
 	}
 
 	.calendy-container {

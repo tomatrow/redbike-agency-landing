@@ -4,8 +4,8 @@
 
 <footer>
 	<a class="company" href="/"><h3>Red Bike Agency</h3></a>
-	<a href="mailto:hello@redbike.agency">hello@redbike.agency</a>
-	<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
+	<a class="email anchor-glow" href="mailto:hello@redbike.agency">hello@redbike.agency</a>
+	<a class="social anchor-glow" href="https://www.instagram.com/redbike.agency" target="_blank">
 		<Instagram />
 	</a>
 </footer>
@@ -25,10 +25,9 @@
 			color: white;
 		}
 
-		a {
-			&:hover {
-				color: white;
-			}
+		.email,
+		.social {
+			--glow-color: white;
 		}
 	}
 </style>

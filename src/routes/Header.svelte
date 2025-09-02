@@ -30,8 +30,16 @@
 		><img src="/images/logo.webp" alt="red bike" /></a
 	>
 	<nav in:fly|global={floatUp} class="desktop-nav">
-		<a href="/" aria-current={page.url.pathname === "/"}>home</a>
-		<a href="/about" aria-current={page.url.pathname === "/about"}>about us</a>
+		<a
+			href="/"
+			class:anchor-beam={page.url.pathname !== "/"}
+			aria-current={page.url.pathname === "/"}>home</a
+		>
+		<a
+			href="/about"
+			class:anchor-beam={page.url.pathname !== "/about"}
+			aria-current={page.url.pathname === "/about"}>about us</a
+		>
 		<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
 			<Instagram />
 		</a>
@@ -41,11 +49,11 @@
 		><img src="/images/logo-mobile.webp" alt="red bike" /></a
 	>
 	<div class="mobile-menu-button icon-only" in:fly|global={floatUp}>
-		<MenuIcon open={showMenu} onclick={() => (showMenu = !showMenu)} --menu-color={
-			showMenu
-				? "black"
-				: "white"
-			}  />
+		<MenuIcon
+			open={showMenu}
+			onclick={() => (showMenu = !showMenu)}
+			--menu-color={showMenu ? "black" : "white"}
+		/>
 	</div>
 	{#if showMenu && isMobile}
 		<nav
@@ -53,8 +61,12 @@
 			transition:fly={{ y: 10, duration: 200, easing: cubicInOut, opacity: 0 }}
 		>
 			<ul>
-				<li><a href="/" aria-current={page.url.pathname === "/"}>home</a></li>
-				<li><a href="/about" aria-current={page.url.pathname === "/about"}>about us</a></li>
+				<li>
+					<a href="/" aria-current={page.url.pathname === "/"}>home</a>
+				</li>
+				<li>
+					<a href="/about" aria-current={page.url.pathname === "/about"}>about us</a>
+				</li>
 			</ul>
 			<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
 				<Instagram />
@@ -69,8 +81,8 @@
 			overflow: hidden;
 		}
 	}
-	
-	a[aria-current = true] {
+
+	a[aria-current="true"] {
 		border-bottom: 1px solid currentColor;
 	}
 
@@ -130,7 +142,7 @@
 			left: 1rem;
 			bottom: 1rem;
 		}
- 
+
 		ul {
 			display: flex;
 			flex-direction: column;
