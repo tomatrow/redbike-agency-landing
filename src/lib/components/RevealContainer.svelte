@@ -6,14 +6,17 @@
 
 	let {
 		axis = "x",
-		children
+		children,
+		class: clazz
 	}: {
 		axis: "x" | "y"
+		class?: string
 		children?: Snippet
 	} = $props()
 
 	let target = $state<HTMLElement>()
 	let showCover = $state(true)
+	let didEndOutro = $state(false)
 	let observer = useIntersectionObserver(
 		() => target,
 		(entries) => {
@@ -29,7 +32,7 @@
 	let clientHeight = $state(0)
 </script>
 
-<div class="reveal-container">
+<div class={["reveal-container", clazz]} class:enabled={!didEndOutro}>
 	{@render children?.()}
 	{#if showCover}
 		<div
@@ -41,17 +44,20 @@
 				opacity: 1,
 				easing: cubicInOut,
 				duration: 500,
-				x: axis === "x" ? clientWidth : undefined,
-				y: axis === "y" ? -clientHeight : undefined
+				x: axis === "x" ? clientWidth + 10 : undefined,
+				y: axis === "y" ? -clientHeight - 10 : undefined
 			}}
+			onoutroendcapture={() => (didEndOutro = true)}
 		></div>
 	{/if}
 </div>
 
 <style>
 	.reveal-container {
-		position: relative;
-		overflow: hidden;
+		&.enabled {
+			position: relative;
+			overflow: clip;
+		}
 
 		.cover {
 			background: var(--bg);

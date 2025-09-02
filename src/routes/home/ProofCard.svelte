@@ -61,18 +61,19 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		color: var(--accent);
 		border-left: none;
 		border-right: none;
-		border-color: var(--text);
 		margin-top: 1rem;
-		color: var(--text);
 		padding: 0.5rem 0;
 		font-weight: 500;
 
-		background: none;
+		color: var(--text);
+		&::before {
+			content: unset;
+		}
+
 		&:hover {
-			background: none;
+			color: var(--text);
 		}
 	}
 

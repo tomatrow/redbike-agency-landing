@@ -117,11 +117,11 @@
 	}
 
 	button.icon-only {
-		background: none;
+		--button: var(--bg);
 		border: none;
 
-		&:hover {
-			background: none;
+		&::before {
+			content: unset;
 		}
 	}
 
