@@ -4,6 +4,7 @@
 	import { fly } from "svelte/transition"
 	import { cubicInOut, cubicOut } from "svelte/easing"
 	import { beforeNavigate } from "$app/navigation"
+	import { page } from "$app/state"
 	import MenuIcon from "./MenuIcon.svelte"
 
 	let showMenu = $state(false)
@@ -29,8 +30,8 @@
 		><img src="/images/logo.webp" alt="red bike" /></a
 	>
 	<nav in:fly|global={floatUp} class="desktop-nav">
-		<a href="/">home</a>
-		<a href="/about">about us</a>
+		<a href="/" aria-current={page.url.pathname === "/"}>home</a>
+		<a href="/about" aria-current={page.url.pathname === "/about"}>about us</a>
 		<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
 			<Instagram />
 		</a>
@@ -52,8 +53,8 @@
 			transition:fly={{ y: 10, duration: 200, easing: cubicInOut, opacity: 0 }}
 		>
 			<ul>
-				<li><a href="/">home</a></li>
-				<li><a href="/about">about us</a></li>
+				<li><a href="/" aria-current={page.url.pathname === "/"}>home</a></li>
+				<li><a href="/about" aria-current={page.url.pathname === "/about"}>about us</a></li>
 			</ul>
 			<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
 				<Instagram />
@@ -67,6 +68,10 @@
 		.no-scroll {
 			overflow: hidden;
 		}
+	}
+	
+	a[aria-current = true] {
+		border-bottom: 1px solid currentColor;
 	}
 
 	header {
