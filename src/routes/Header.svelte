@@ -2,11 +2,13 @@
 	import { Instagram, Menu, X } from "@lucide/svelte"
 	import { MediaQuery } from "svelte/reactivity"
 	import { fly } from "svelte/transition"
-	import { cubicInOut } from "svelte/easing"
+	import { cubicInOut, cubicOut } from "svelte/easing"
 	import { beforeNavigate } from "$app/navigation"
 
 	let showMenu = $state(false)
 	let isMobile = new MediaQuery("max-width: 720px")
+
+	const floatUp = { y: 10, duration: 600, easing: cubicOut }
 
 	beforeNavigate(() => {
 		showMenu = false
@@ -22,9 +24,10 @@
 </script>
 
 <header>
-	<a href="/"><img src="/images/logo.webp" alt="red bike" /> </a>
-	<button class="mobile icon-only" onclick={() => (showMenu = true)}><Menu /></button>
-	<nav class="desktop">
+	<a class="desktop-logo" in:fly|global={floatUp} href="/"
+		><img src="/images/logo.webp" alt="red bike" /></a
+	>
+	<nav in:fly|global={floatUp} class="desktop-nav">
 		<a href="/">home</a>
 		<a href="/about">about us</a>
 		<a class="social" href="https://www.instagram.com/redbike.agency" target="_blank">
@@ -32,8 +35,21 @@
 		</a>
 	</nav>
 
+	<a class="mobile-logo" in:fly|global={floatUp} href="/"
+		><img src="/images/logo-mobile.webp" alt="red bike" /></a
+	>
+	<button
+		class="mobile-menu-button icon-only"
+		in:fly|global={floatUp}
+		onclick={() => (showMenu = true)}
+	>
+		<Menu />
+	</button>
 	{#if showMenu && isMobile}
-		<nav class="mobile" transition:fly={{ y: 10, duration: 200, easing: cubicInOut, opacity: 0 }}>
+		<nav
+			class="mobile-nav"
+			transition:fly={{ y: 10, duration: 200, easing: cubicInOut, opacity: 0 }}
+		>
 			<button class="icon-only" onclick={() => (showMenu = false)}><X /></button>
 			<ul>
 				<li><a href="/">home</a></li>
@@ -53,6 +69,15 @@
 		}
 	}
 
+	button.icon-only {
+		--button: var(--bg);
+		border: none;
+
+		&::before {
+			content: unset;
+		}
+	}
+
 	header {
 		position: sticky;
 		top: 0;
@@ -66,24 +91,27 @@
 		z-index: 1000;
 	}
 
-	img {
-		width: 235px;
-	}
+	.mobile-logo {
+		max-width: 100px;
+		margin: auto;
 
-	nav.desktop {
-		display: none;
-		gap: 1rem;
-		--accent: #fff;
-		--accent-hover: #fff;
-
-		a.social {
-			margin-left: 2rem;
-			width: 1rem;
-			transform: translate(0, 1px);
+		@media (min-width: 720px) {
+			display: none;
 		}
 	}
 
-	nav.mobile {
+	.mobile-menu-button {
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		transform: translateY(-50%);
+
+		@media (min-width: 720px) {
+			display: none;
+		}
+	}
+
+	.mobile-nav {
 		--accent: black;
 		--accent-hover: black;
 
@@ -116,22 +144,32 @@
 		}
 	}
 
-	button.icon-only {
-		--button: var(--bg);
-		border: none;
+	.desktop-logo {
+		display: none;
 
-		&::before {
-			content: unset;
+		@media (min-width: 720px) {
+			display: unset;
+		}
+
+		img {
+			width: 235px;
 		}
 	}
 
-	@media only screen and (min-width: 720px) {
-		nav.desktop {
+	.desktop-nav {
+		display: none;
+		gap: 1rem;
+		--accent: #fff;
+		--accent-hover: #fff;
+
+		@media (min-width: 720px) {
 			display: flex;
 		}
 
-		button.mobile {
-			display: none;
+		a.social {
+			margin-left: 2rem;
+			width: 1rem;
+			transform: translate(0, 1px);
 		}
 	}
 </style>
