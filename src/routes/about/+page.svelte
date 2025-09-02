@@ -1,8 +1,11 @@
 <script lang="ts">
-	import Hero from "./Hero.svelte"
+	import AboutSection from "./AboutSection.svelte"
+	import ContactSection from "./ContactSection.svelte"
+	import HeroSection from "./HeroSection.svelte"
+	import PostHeroSection from "./PostHeroSection.svelte"
 </script>
 
-<Hero />
-
-<style>
-</style>
+<HeroSection />
+<PostHeroSection />
+<AboutSection />
+<ContactSection />
